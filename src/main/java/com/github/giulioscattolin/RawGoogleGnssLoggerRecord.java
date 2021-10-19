@@ -1,6 +1,5 @@
 package com.github.giulioscattolin;
 
-
 public abstract class RawGoogleGnssLoggerRecord implements GoogleGnssLoggerRecord {
     public void accept(GoogleGnssLoggerRecordVisitor visitor) {
         visitor.visit(this);
@@ -54,13 +53,37 @@ public abstract class RawGoogleGnssLoggerRecord implements GoogleGnssLoggerRecor
 
     public abstract double getTimeOffsetNanos();
 
-    public abstract boolean hasState();
+    public abstract boolean hasSecondaryCodeLock();
 
-    public abstract int getState();
+    public abstract boolean hasD2BitSync();
 
-    public boolean doesStateMatch(int flags) {
-        return (getState() & flags) == flags;
-    }
+    public abstract boolean hasD2SubFrameSync();
+
+    public abstract boolean hasBitSync();
+
+    public abstract boolean hasCodeLock();
+
+    public abstract boolean hasE1BCCodeLock();
+
+    public abstract boolean hasE1BPageSync();
+
+    public abstract boolean hasE1CSecondaryCodeLock();
+
+    public abstract boolean hasStringSync();
+
+    public abstract boolean hasTodDecoded();
+
+    public abstract boolean hasTodKnown();
+
+    public abstract boolean hasWholeSecondLevelSync();
+
+    public abstract boolean containsMillisecondAmbiguity();
+
+    public abstract boolean hasSubFrameSync();
+
+    public abstract boolean hasSymbolSync();
+
+    public abstract boolean hasTowDecoded();
 
     public abstract boolean hasReceivedSvTimeNanos();
 
@@ -82,9 +105,13 @@ public abstract class RawGoogleGnssLoggerRecord implements GoogleGnssLoggerRecor
 
     public abstract double getPseudorangeRateUncertaintyMetersPerSecond();
 
-    public abstract boolean hasAccumulatedDeltaRangeState();
+    public abstract boolean hasCycleSlipDetected();
 
-    public abstract int getAccumulatedDeltaRangeState();
+    public abstract boolean hasHalfCycleReported();
+
+    public abstract boolean hasHalfCycleResolved();
+
+    public abstract boolean wasResetDetected();
 
     public abstract boolean hasAccumulatedDeltaRangeMeters();
 
@@ -110,17 +137,15 @@ public abstract class RawGoogleGnssLoggerRecord implements GoogleGnssLoggerRecor
 
     public abstract double getCarrierPhaseUncertainty();
 
-    public abstract boolean hasMultipathIndicator();
-
-    public abstract int getMultipathIndicator();
+    public abstract MultipathIndicator getMultipathIndicator();
 
     public abstract boolean hasSnrInDb();
 
     public abstract double getSnrInDb();
 
-    public abstract boolean hasConstellationType();
+    public abstract boolean hasConstellation();
 
-    public abstract int getConstellationType();
+    public abstract Constellation getConstellation();
 
     public abstract boolean hasAgcDb();
 
@@ -154,58 +179,20 @@ public abstract class RawGoogleGnssLoggerRecord implements GoogleGnssLoggerRecor
 
     public abstract long getChipsetElapsedRealtimeNanos();
 
-    interface ConstellationType {
-        int BEIDOU = 5;
-        int GALILEO = 6;
-        int GLONASS = 3;
-        int GPS = 1;
-        int IRNSS = 7;
-        int QZSS = 4;
-        int SBAS = 2;
-        int UNKNOWN = 0;
-
-        static String toMacroCase(int value) {
-            switch (value) {
-                case BEIDOU:
-                    return "BEIDOU";
-                case GALILEO:
-                    return "GALILEO";
-                case GLONASS:
-                    return "GLONASS";
-                case GPS:
-                    return "GPS";
-                case IRNSS:
-                    return "IRNSS";
-                case QZSS:
-                    return "QZSS";
-                case SBAS:
-                    return "SBAS";
-                case UNKNOWN:
-                    return "UNKNOWN";
-                default:
-                    return "?";
-            }
-        }
+    enum Constellation {
+        UNKNOWN,
+        GPS,
+        SBAS,
+        GLONASS,
+        QZSS,
+        BEIDOU,
+        GALILEO,
+        IRNSS,
     }
 
-    interface State {
-        int STATE_2ND_CODE_LOCK = 65536;
-        int STATE_BDS_D2_BIT_SYNC = 256;
-        int STATE_BDS_D2_SUBFRAME_SYNC = 512;
-        int STATE_BIT_SYNC = 2;
-        int STATE_CODE_LOCK = 1;
-        int STATE_GAL_E1BC_CODE_LOCK = 1024;
-        int STATE_GAL_E1B_PAGE_SYNC = 4096;
-        int STATE_GAL_E1C_2ND_CODE_LOCK = 2048;
-        int STATE_GLO_STRING_SYNC = 64;
-        int STATE_GLO_TOD_DECODED = 128;
-        int STATE_GLO_TOD_KNOWN = 32768;
-        int STATE_MSEC_AMBIGUOUS = 16;
-        int STATE_SBAS_SYNC = 8192;
-        int STATE_SUBFRAME_SYNC = 4;
-        int STATE_SYMBOL_SYNC = 32;
-        int STATE_TOW_DECODED = 8;
-        int STATE_TOW_KNOWN = 16384;
-        int STATE_UNKNOWN = 0;
+    enum MultipathIndicator {
+        UNKNOWN,
+        DETECTED,
+        NOT_DETECTED
     }
 }
