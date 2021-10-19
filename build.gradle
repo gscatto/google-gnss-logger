@@ -2,8 +2,8 @@ plugins {
     id 'java-library'
 }
 
-group = 'com.github.giulioscattolin'
 version = '1.0.0'
+group = 'com.github.giulioscattolin'
 
 repositories {
     mavenCentral()
