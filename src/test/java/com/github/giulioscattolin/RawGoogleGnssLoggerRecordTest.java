@@ -1,6 +1,5 @@
 package com.github.giulioscattolin;
 
-import com.github.giulioscattolin.RawGoogleGnssLoggerRecord.ConstellationType;
 import org.junit.Test;
 
 import static com.github.giulioscattolin.RawGoogleGnssLoggerRecord.ConstellationType.*;
@@ -18,6 +17,7 @@ public class RawGoogleGnssLoggerRecordTest {
         assertThat(SBAS).isEqualTo(2);
         assertThat(UNKNOWN).isEqualTo(0);
     }
+
     @Test
     public void testToMacroCase() {
         assertThat(toMacroCase(BEIDOU)).isEqualTo("BEIDOU");
