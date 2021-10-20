@@ -1,19 +1,33 @@
 package com.github.giulioscattolin;
 
+import org.junit.Before;
 import org.junit.Test;
 
-import static com.github.giulioscattolin.EagerGoogleRawGnssMeasurementLineAdapter.readLine;
 import static com.google.common.truth.Truth.assertThat;
 
-public class EagerGoogleRawGnssMeasurementLineAdapterTest implements GoogleGnssLoggerRecordCollector, GoogleGnssLoggerRecordVisitor {
+public class EagerGoogleRawGnssMeasurementLineReaderTest implements GoogleGnssLoggerRecordCollector, GoogleGnssLoggerRecordVisitor {
     String itsLine;
     GoogleRawGnssMeasurement itsGoogleRawGnssMeasurement;
+    EagerGoogleRawGnssMeasurementLineReader itsReader;
+
+    @Before
+    public void setup() {
+        itsReader = new EagerGoogleRawGnssMeasurementLineReader(this);
+    }
+
+    public void collect(GoogleGnssLoggerRecord record) {
+        record.accept(this);
+    }
+
+    public void visit(GoogleRawGnssMeasurement googleRawGnssMeasurement) {
+        itsGoogleRawGnssMeasurement = googleRawGnssMeasurement;
+    }
 
     @Test
     public void testEmptyLine() {
         itsLine = "";
 
-        readLine(itsLine, this);
+        itsReader.readLine(itsLine);
 
         assertThat(itsGoogleRawGnssMeasurement).isNull();
     }
@@ -22,7 +36,7 @@ public class EagerGoogleRawGnssMeasurementLineAdapterTest implements GoogleGnssL
     public void testEmpty() {
         itsLine = "Raw";
 
-        readLine(itsLine, this);
+        itsReader.readLine(itsLine);
 
         assertThat(itsGoogleRawGnssMeasurement.hasUtcTimeMillis()).isFalse();
         assertThat(itsGoogleRawGnssMeasurement.hasTimeNanos()).isFalse();
@@ -65,7 +79,7 @@ public class EagerGoogleRawGnssMeasurementLineAdapterTest implements GoogleGnssL
     public void testV3001() {
         itsLine = "Raw,1619345912440,214237039000000,18,,-1303166893401161864,-0.4595146179199219,28.050781111232936,-2.563994083470523,14.912393214232969,53,25,0.0,16399,37130373020312,13,35.5,-104.33929443359375,0.04440000280737877,16,-0.0,1902.9177342976868,1.57542003E9,,,,0,,1,-2.11,31.9,0.0,0.0,,,C,313851404442744";
 
-        readLine(itsLine, this);
+        itsReader.readLine(itsLine);
 
         assertThat(itsGoogleRawGnssMeasurement.hasUtcTimeMillis()).isTrue();
         assertThat(itsGoogleRawGnssMeasurement.getUtcTimeMillis()).isEqualTo(1619345912440L);
@@ -133,13 +147,5 @@ public class EagerGoogleRawGnssMeasurementLineAdapterTest implements GoogleGnssL
         assertThat(itsGoogleRawGnssMeasurement.getConstellationType()).isEqualTo(1);
         assertThat(itsGoogleRawGnssMeasurement.hasMultipathIndicator()).isTrue();
         assertThat(itsGoogleRawGnssMeasurement.getMultipathIndicator()).isEqualTo(0);
-    }
-
-    public void collect(GoogleGnssLoggerRecord record) {
-        record.accept(this);
-    }
-
-    public void visit(GoogleRawGnssMeasurement googleRawGnssMeasurement) {
-        itsGoogleRawGnssMeasurement = googleRawGnssMeasurement;
     }
 }
