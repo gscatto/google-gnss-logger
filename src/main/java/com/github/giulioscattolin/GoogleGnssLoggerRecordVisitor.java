@@ -1,6 +1,6 @@
 package com.github.giulioscattolin;
 
 public interface GoogleGnssLoggerRecordVisitor {
-    default void visit(RawGoogleGnssLoggerRecord rawGoogleGnssLoggerRecord) {
+    default void visit(RawGnssMeasurement rawGnssMeasurement) {
     }
 }

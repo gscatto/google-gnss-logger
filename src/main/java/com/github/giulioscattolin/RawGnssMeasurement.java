@@ -1,6 +1,6 @@
 package com.github.giulioscattolin;
 
-public abstract class RawGoogleGnssLoggerRecord implements GoogleGnssLoggerRecord {
+public abstract class RawGnssMeasurement implements GoogleGnssLoggerRecord {
     public void accept(GoogleGnssLoggerRecordVisitor visitor) {
         visitor.visit(this);
     }
