@@ -1,6 +1,6 @@
 package com.github.giulioscattolin;
 
-public abstract class RawGnssMeasurement implements GoogleGnssLoggerRecord {
+public abstract class GoogleRawGnssMeasurement implements GoogleGnssLoggerRecord {
     public void accept(GoogleGnssLoggerRecordVisitor visitor) {
         visitor.visit(this);
     }
@@ -53,38 +53,6 @@ public abstract class RawGnssMeasurement implements GoogleGnssLoggerRecord {
 
     public abstract double getTimeOffsetNanos();
 
-    public abstract boolean hasSecondaryCodeLock();
-
-    public abstract boolean hasD2BitSync();
-
-    public abstract boolean hasD2SubFrameSync();
-
-    public abstract boolean hasBitSync();
-
-    public abstract boolean hasCodeLock();
-
-    public abstract boolean hasE1BCCodeLock();
-
-    public abstract boolean hasE1BPageSync();
-
-    public abstract boolean hasE1CSecondaryCodeLock();
-
-    public abstract boolean hasStringSync();
-
-    public abstract boolean hasTodDecoded();
-
-    public abstract boolean hasTodKnown();
-
-    public abstract boolean hasWholeSecondLevelSync();
-
-    public abstract boolean containsMillisecondAmbiguity();
-
-    public abstract boolean hasSubFrameSync();
-
-    public abstract boolean hasSymbolSync();
-
-    public abstract boolean hasTowDecoded();
-
     public abstract boolean hasReceivedSvTimeNanos();
 
     public abstract long getReceivedSvTimeNanos();
@@ -105,13 +73,13 @@ public abstract class RawGnssMeasurement implements GoogleGnssLoggerRecord {
 
     public abstract double getPseudorangeRateUncertaintyMetersPerSecond();
 
-    public abstract boolean hasCycleSlipDetected();
+    public abstract boolean hasState();
 
-    public abstract boolean hasHalfCycleReported();
+    public abstract int getState();
 
-    public abstract boolean hasHalfCycleResolved();
+    public abstract boolean hasAccumulatedDeltaRangeState();
 
-    public abstract boolean wasResetDetected();
+    public abstract int getAccumulatedDeltaRangeState();
 
     public abstract boolean hasAccumulatedDeltaRangeMeters();
 
@@ -137,15 +105,17 @@ public abstract class RawGnssMeasurement implements GoogleGnssLoggerRecord {
 
     public abstract double getCarrierPhaseUncertainty();
 
-    public abstract MultipathIndicator getMultipathIndicator();
+    public abstract boolean hasMultipathIndicator();
+
+    public abstract int getMultipathIndicator();
 
     public abstract boolean hasSnrInDb();
 
     public abstract double getSnrInDb();
 
-    public abstract boolean hasConstellation();
+    public abstract boolean hasConstellationType();
 
-    public abstract Constellation getConstellation();
+    public abstract int getConstellationType();
 
     public abstract boolean hasAgcDb();
 
@@ -178,21 +148,4 @@ public abstract class RawGnssMeasurement implements GoogleGnssLoggerRecord {
     public abstract boolean hasChipsetElapsedRealtimeNanos();
 
     public abstract long getChipsetElapsedRealtimeNanos();
-
-    enum Constellation {
-        UNKNOWN,
-        GPS,
-        SBAS,
-        GLONASS,
-        QZSS,
-        BEIDOU,
-        GALILEO,
-        IRNSS,
-    }
-
-    enum MultipathIndicator {
-        UNKNOWN,
-        DETECTED,
-        NOT_DETECTED
-    }
 }
