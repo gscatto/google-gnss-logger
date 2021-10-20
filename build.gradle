@@ -26,3 +26,8 @@ publishing {
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
+
+task(analyzeGnssLoggerFile, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.github.giulioscattolin.demo.AnalyzeGnssLoggerFileDemo'
+    classpath = sourceSets.main.runtimeClasspath
+}
