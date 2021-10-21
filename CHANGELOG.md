@@ -1,3 +1,10 @@
+# [1.0.0-alpha.4](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-10-21)
+
+
+### Bug Fixes
+
+* **build:** commit auto-updated README.md ([c91898f](https://github.com/giulioscattolin/google-gnss-logger/commit/c91898f395d1b7970581022cbdacaa894503ad4e))
+
 # [1.0.0-alpha.3](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-10-21)
 
 
