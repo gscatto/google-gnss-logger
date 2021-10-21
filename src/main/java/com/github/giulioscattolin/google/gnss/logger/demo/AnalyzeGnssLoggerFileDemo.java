@@ -5,6 +5,9 @@ import java.io.File;
 import static java.lang.String.format;
 import static java.lang.String.valueOf;
 
+/**
+ * A CLI application that executes {@link AnalyzeGnssLoggerFileUseCase}.
+ */
 public class AnalyzeGnssLoggerFileDemo {
     public static void main(String[] args) {
         String filePath = args[0];

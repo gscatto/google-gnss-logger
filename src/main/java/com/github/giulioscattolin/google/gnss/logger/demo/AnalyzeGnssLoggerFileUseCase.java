@@ -11,6 +11,9 @@ import java.util.*;
 
 import static java.lang.Math.abs;
 
+/**
+ * A multi-purpose use-case that read a GNSS Logger file and present some statistics.
+ */
 public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordCollector, GoogleGnssLoggerRecordVisitor {
     private final File itsFile;
     private final Presenter itsPresenter;
@@ -177,7 +180,10 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
         return cumulativeCn0DbHz / googleRawGnssMeasurements.size();
     }
 
-    interface Presenter {
+    /**
+     * Abstraction for the {@link AnalyzeGnssLoggerFileUseCase} presenter.
+     */
+    public interface Presenter {
         void tellError(String error);
 
         void tellGoogleRawGnssMeasurementCount(int googleRawGnssMeasurementCount);
@@ -186,11 +192,14 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
 
         void beforeReportByConstellationAndCarrierFrequency();
 
+        /**
+         * Holds some statistics for a given (constellation, carrier frequency) pair.
+         */
         class ReportByConstellationTypeCarrierFrequency {
-            String itsConstellation;
-            String itsCarrier;
-            int itsCount;
-            double itsAverageCn0DbHz;
+            public String itsConstellation;
+            public String itsCarrier;
+            public int itsCount;
+            public double itsAverageCn0DbHz;
         }
     }
 
