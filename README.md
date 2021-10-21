@@ -3,6 +3,19 @@ This library facilitates reading, writing and processing of sensor events and ra
 
 ![CI badge](https://github.com/giulioscattolin/google-gnss-logger/actions/workflows/gradle.yml/badge.svg)
 
+## Installation
+```groovy
+// build.gradle
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.giulioscattolin:google-gnss-logger:1.0.0-alpha.2'
+}
+```
+
 ## Demostration
 The [demo](/src/main/java/com/github/giulioscattolin/demo) directory contains an example that shows how this library may be used in a realistic scenario.  The [AnalyzeGnssLoggerFileUseCase](/src/main/java/com/github/giulioscattolin/demo/AnalyzeGnssLoggerFileUseCase.java)  reads a file, tells how many raw GNSS measurements have been encountered, groups them by constellation and carrier frequency and then reports some statistics for each pair.
 
