@@ -34,6 +34,6 @@ javadoc {
 }
 
 task(analyzeGnssLoggerFile, dependsOn: 'classes', type: JavaExec) {
-    main = 'com.github.giulioscattolin.demo.AnalyzeGnssLoggerFileDemo'
+    main = 'com.github.giulioscattolin.google.gnss.logger.demo.AnalyzeGnssLoggerFileDemo'
     classpath = sourceSets.main.runtimeClasspath
 }

@@ -1,4 +1,4 @@
-package com.github.giulioscattolin;
+package com.github.giulioscattolin.google.gnss.logger;
 
 public abstract class GoogleRawGnssMeasurement implements GoogleGnssLoggerRecord {
     public void accept(GoogleGnssLoggerRecordVisitor visitor) {

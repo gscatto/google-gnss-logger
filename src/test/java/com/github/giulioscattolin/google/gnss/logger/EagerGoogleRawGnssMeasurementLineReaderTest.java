@@ -1,4 +1,4 @@
-package com.github.giulioscattolin;
+package com.github.giulioscattolin.google.gnss.logger;
 
 import org.junit.Before;
 import org.junit.Test;

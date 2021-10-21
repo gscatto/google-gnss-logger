@@ -1,7 +1,6 @@
-package com.github.giulioscattolin.demo;
+package com.github.giulioscattolin.google.gnss.logger.demo;
 
 import java.io.File;
-import java.text.DecimalFormat;
 
 import static java.lang.String.format;
 import static java.lang.String.valueOf;

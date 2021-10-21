@@ -1,6 +1,6 @@
-package com.github.giulioscattolin.demo;
+package com.github.giulioscattolin.google.gnss.logger.demo;
 
-import com.github.giulioscattolin.*;
+import com.github.giulioscattolin.google.gnss.logger.*;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -22,7 +22,7 @@ dependencies {
 ```
 
 ## Try before you buy
-The [demo](/src/main/java/com/github/giulioscattolin/demo) directory contains a CLI application which reports simple statistics for a given file. You are encouraged to play with the code to familiarize yourself with the API. Feel free to improve the formatting, generate more data, fix any bugs you may encounter. Pull requests are always welcome!
+The [demo](/src/main/java/com/github/giulioscattolin/google/gnss/logger/demo) directory contains a CLI application which reports simple statistics for a given file. You are encouraged to play with the code to familiarize yourself with the API. Feel free to improve the formatting, generate more data, fix any bugs you may encounter. Pull requests are always welcome!
 
 ### Usage
 ```shell
