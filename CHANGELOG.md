@@ -1,3 +1,15 @@
+# [1.0.0-alpha.3](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.2...v1.0.0-alpha.3) (2021-10-21)
+
+
+### Code Refactoring
+
+* move everything under "com.github.giulio.google.gnss.logger" package ([5220921](https://github.com/giulioscattolin/google-gnss-logger/commit/52209211493da49b0be861135bdca04b9e1dbaae))
+
+
+### BREAKING CHANGES
+
+* remove "com.github.giulioscattolin" package
+
 # [1.0.0-alpha.2](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-10-21)
 
 
