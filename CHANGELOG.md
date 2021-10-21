@@ -1,3 +1,10 @@
+# [1.0.0-alpha.5](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-10-21)
+
+
+### Features
+
+* add documentation to main package ([22241dc](https://github.com/giulioscattolin/google-gnss-logger/commit/22241dc8ea44c4dadf14575529f33eb29dfaa538))
+
 # [1.0.0-alpha.4](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2021-10-21)
 
 
