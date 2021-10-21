@@ -1,14 +1,17 @@
-# google-gnss-logger
+# google-gnss-logger 
 This library facilitates reading, writing and processing of sensor events and raw GNSS measurements encoded according to the Google's [GNSS Logger](https://play.google.com/store/apps/details?id=com.google.android.apps.location.gps.gnsslogger) application format.
+* Stunningly easy to use
+* Enables developing algorithms for Android devices
+* Does not depend on the Android API
+* Provides parsing strategies according to different requirements
 
 ![CI badge](https://github.com/giulioscattolin/google-gnss-logger/actions/workflows/gradle.yml/badge.svg)
 ![JitPack badge](https://jitpack.io/v/giulioscattolin/google-gnss-logger.svg)
 
-
 ## Installation
+    
+### Gradle (Groovy)
 ```groovy
-// build.gradle
-
 repositories {
     maven { url 'https://jitpack.io' }
 }
@@ -18,7 +21,7 @@ dependencies {
 }
 ```
 
-## Demostration
+## Demo
 The [demo](/src/main/java/com/github/giulioscattolin/demo) directory contains an example that shows how this library may be used in a realistic scenario.  The [AnalyzeGnssLoggerFileUseCase](/src/main/java/com/github/giulioscattolin/demo/AnalyzeGnssLoggerFileUseCase.java)  reads a file, tells how many raw GNSS measurements have been encountered, groups them by constellation and carrier frequency and then reports some statistics for each pair.
 
 _Usage:_
