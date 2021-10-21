@@ -24,7 +24,7 @@
         "@semantic-release/git",
         {
           "assets": [
-            "gradle.build",
+            "build.gradle",
             "CHANGELOG.md"
           ],
           "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
