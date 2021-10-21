@@ -27,6 +27,11 @@ java {
     sourceCompatibility = JavaVersion.VERSION_1_8
 }
 
+javadoc {
+    source = sourceSets.main.allJava
+    classpath = configurations.compile
+}
+
 task(analyzeGnssLoggerFile, dependsOn: 'classes', type: JavaExec) {
     main = 'com.github.giulioscattolin.demo.AnalyzeGnssLoggerFileDemo'
     classpath = sourceSets.main.runtimeClasspath
