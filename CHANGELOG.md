@@ -1,3 +1,10 @@
+# [1.0.0-alpha.2](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2021-10-21)
+
+
+### Bug Fixes
+
+* **build:** "build.gradle" was "gradle.build" ([7c5e5a4](https://github.com/giulioscattolin/google-gnss-logger/commit/7c5e5a42f927f07875ec5ea3b207c4d30f6f1255))
+
 # 1.0.0-alpha.1 (2021-10-21)
 
 
