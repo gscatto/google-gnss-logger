@@ -21,15 +21,16 @@ dependencies {
 }
 ```
 
-## Demo
-The [demo](/src/main/java/com/github/giulioscattolin/demo) directory contains an example that shows how this library may be used in a realistic scenario.  The [AnalyzeGnssLoggerFileUseCase](/src/main/java/com/github/giulioscattolin/demo/AnalyzeGnssLoggerFileUseCase.java)  reads a file, tells how many raw GNSS measurements have been encountered, groups them by constellation and carrier frequency and then reports some statistics for each pair.
+## Try before you buy
+The [demo](/src/main/java/com/github/giulioscattolin/demo) directory contains a CLI application which reports simple statistics for a given file. You are encouraged to play with the code to familiarize yourself with the API. Feel free to improve the formatting, generate more data, fix any bugs you may encounter. Pull requests are always welcome!
 
-_Usage:_
+### Usage
 ```shell
 ./gradlew analyzeGnssLoggerFile --args <path>
 ```
+This will compile and run the application each time it is invoked.
 
-_Example output:_
+### Example output
 ```text
 GoogleRawGnssMeasurementCount = 218414
 Constellation  Carrier [Hz]      Count    Avg.Cn0DbHz
