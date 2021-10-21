@@ -2,6 +2,8 @@
 This library facilitates reading, writing and processing of sensor events and raw GNSS measurements encoded according to the Google's [GNSS Logger](https://play.google.com/store/apps/details?id=com.google.android.apps.location.gps.gnsslogger) application format.
 
 ![CI badge](https://github.com/giulioscattolin/google-gnss-logger/actions/workflows/gradle.yml/badge.svg)
+![JitPack badge](https://jitpack.io/v/giulioscattolin/google-gnss-logger.svg)
+
 
 ## Installation
 ```groovy
