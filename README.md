@@ -3,7 +3,7 @@ This library facilitates reading, writing and processing of sensor events and ra
 * Stunningly easy to use
 * Enables developing algorithms for Android devices
 * Does not depend on the Android API
-* Provides parsing strategies according to different requirements
+* Provides parsing strategies according to different desired behavior
 
 ![CI badge](https://github.com/giulioscattolin/google-gnss-logger/actions/workflows/gradle.yml/badge.svg)
 ![JitPack badge](https://jitpack.io/v/giulioscattolin/google-gnss-logger.svg)
