@@ -15,6 +15,7 @@ import static java.lang.Math.abs;
  * A multi-purpose use-case that read a GNSS Logger file and present some statistics.
  */
 public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordCollector, GoogleGnssLoggerRecordVisitor {
+    private static final DecimalFormat itsFormatter = new DecimalFormat("0.####E0");
     private final File itsFile;
     private final Presenter itsPresenter;
     private final EagerGoogleRawGnssMeasurementLineReader itsReader = new EagerGoogleRawGnssMeasurementLineReader(this);
@@ -117,7 +118,6 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
         return report;
     }
 
-    private static final DecimalFormat itsFormatter = new DecimalFormat("0.####E0");
     private String getCarrier(double carrierFrequencyHz, String constellation) {
         if ("GLONASS".equals(constellation))
             return itsFormatter.format(carrierFrequencyHz);
@@ -139,7 +139,7 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
                 return "B1c";
             return "1176.45E6";
         }
-        if (isCloseTo(carrierFrequencyHz,  1.5611E9))
+        if (isCloseTo(carrierFrequencyHz, 1.5611E9))
             if ("BEIDOU".equals(constellation))
                 return "B1I";
         return itsFormatter.format(carrierFrequencyHz);
