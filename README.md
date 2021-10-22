@@ -1,10 +1,12 @@
 # google-gnss-logger 
 This library facilitates reading, writing and processing of sensor events and raw GNSS measurements encoded according to the Google's [GNSS Logger](https://play.google.com/store/apps/details?id=com.google.android.apps.location.gps.gnsslogger) application format.
 * Provides a reasonable level of abstraction on the aforementioned format
-* Defines the usual `hasX()` and `getX()` accessor methods
-* Fields are mapped to the most appropriate primitive type
-* No need to wait for updates to consume new values of existing fields
-* Supplies a highly-configurable parser
+    * Defines the usual `hasX()` and `getX()` accessor methods
+    * Fields are mapped to the most appropriate primitive type
+    * No need to wait for updates to consume new values of existing fields 
+* Supplies a **highly configurable** and **super efficient** parser
+    * Avoid reading records that will not be processed by setting configuration only for the relevant ones  
+    * For each record, avoid converting values that will not be processed by selecting only the relevant fields
 
 ![CI badge](https://github.com/giulioscattolin/google-gnss-logger/actions/workflows/gradle.yml/badge.svg)
 ![JitPack badge](https://jitpack.io/v/giulioscattolin/google-gnss-logger.svg)
