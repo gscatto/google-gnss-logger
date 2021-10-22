@@ -4,7 +4,7 @@ This library facilitates reading, writing and processing of sensor events and ra
 * Defines the usual `hasX()` and `getX()` accessor methods
 * Fields are mapped to the most appropriate primitive type
 * No need to wait for updates to consume new values of existing fields
-* Offers different parsing strategies according to the desired performance 
+* Supplies a highly-configurable parser
 
 ![CI badge](https://github.com/giulioscattolin/google-gnss-logger/actions/workflows/gradle.yml/badge.svg)
 ![JitPack badge](https://jitpack.io/v/giulioscattolin/google-gnss-logger.svg)

@@ -6,16 +6,18 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 
-public class EagerGoogleRawGnssMeasurementLineReader {
+/**
+ * A {@link GoogleRawGnssMeasurementLineReader} that reads all the fields at once.
+ */
+public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasurementLineReader {
     private final GoogleGnssLoggerRecordCollector itsCollector;
 
     public EagerGoogleRawGnssMeasurementLineReader(GoogleGnssLoggerRecordCollector collector) {
         itsCollector = collector;
     }
 
-    public void readLine(String line) {
-        if (line.startsWith("Raw"))
-            itsCollector.collect(new Read(line).itsGoogleRawGnssMeasurement);
+    public void readGoogleRawGnssMeasurement(String line) {
+        itsCollector.collect(new Read(line).itsGoogleRawGnssMeasurement);
     }
 
     static class Read {

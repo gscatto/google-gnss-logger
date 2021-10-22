@@ -18,13 +18,19 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
     private static final DecimalFormat itsFormatter = new DecimalFormat("0.####E0");
     private final File itsFile;
     private final Presenter itsPresenter;
-    private final EagerGoogleRawGnssMeasurementLineReader itsReader = new EagerGoogleRawGnssMeasurementLineReader(this);
+    private final ConfigurableGoogleGnssLoggerRecordLineReader itsReader = makeLineReader();
     private int itsGoogleRawGnssMeasurementCount = 0;
     private final Map<ConstellationTypeCarrierFrequency, List<GoogleRawGnssMeasurement>> itsGoogleRawGnssMeasurementByConstellationTypeAndCarrierFrequency = new HashMap<>();
 
     public AnalyzeGnssLoggerFileUseCase(File file, Presenter presenter) {
         itsFile = file;
         itsPresenter = presenter;
+    }
+
+    private ConfigurableGoogleGnssLoggerRecordLineReader makeLineReader() {
+        return
+            new ConfigurableGoogleGnssLoggerRecordLineReader()
+                .with(new EagerGoogleRawGnssMeasurementLineReader(this));
     }
 
     public void execute() {
