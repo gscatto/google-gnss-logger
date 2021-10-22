@@ -19,8 +19,8 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
     private final File itsFile;
     private final Presenter itsPresenter;
     private final ConfigurableGoogleGnssLoggerRecordLineReader itsReader = makeLineReader();
-    private int itsGoogleRawGnssMeasurementCount = 0;
     private final Map<ConstellationTypeCarrierFrequency, List<GoogleRawGnssMeasurement>> itsGoogleRawGnssMeasurementByConstellationTypeAndCarrierFrequency = new HashMap<>();
+    private int itsGoogleRawGnssMeasurementCount = 0;
 
     public AnalyzeGnssLoggerFileUseCase(File file, Presenter presenter) {
         itsFile = file;
