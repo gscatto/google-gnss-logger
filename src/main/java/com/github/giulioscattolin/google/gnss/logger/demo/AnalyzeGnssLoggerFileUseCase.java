@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.*;
 
+import static com.github.giulioscattolin.google.gnss.logger.GoogleRawGnssMeasurementField.*;
 import static java.lang.Math.abs;
 
 /**
@@ -30,7 +31,14 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
     private ConfigurableGoogleGnssLoggerRecordLineReader makeLineReader() {
         return
             new ConfigurableGoogleGnssLoggerRecordLineReader()
-                .with(new EagerGoogleRawGnssMeasurementLineReader(this));
+                .with(
+                    new FilteredEagerGoogleRawGnssMeasurementLineReader(
+                        this,
+                        new GoogleRawGnssMeasurementField[]{
+                            CONSTELLATION_TYPE,
+                            CARRIER_FREQUENCY_HZ,
+                            CN0DBHZ
+                        }));
     }
 
     public void execute() {

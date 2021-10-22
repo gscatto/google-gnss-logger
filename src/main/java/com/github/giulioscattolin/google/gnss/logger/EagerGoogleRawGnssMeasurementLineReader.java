@@ -20,7 +20,7 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
         itsCollector.collect(new Read(line).itsGoogleRawGnssMeasurement);
     }
 
-    static class Read {
+    protected static class Read {
         MutableGoogleRawGnssMeasurement itsGoogleRawGnssMeasurement = new MutableGoogleRawGnssMeasurement();
         String[] itsFields;
 
@@ -29,7 +29,7 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
             read();
         }
 
-        private void read() {
+        protected void read() {
             readUtcTimeMillis();
             readTimeNanos();
             readLeapSecond();
@@ -68,147 +68,147 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
             readChipsetElapsedRealtimeNanos();
         }
 
-        private void readUtcTimeMillis() {
+        protected void readUtcTimeMillis() {
             trySupplyLongAt(1, itsGoogleRawGnssMeasurement::setUtcTimeMillis);
         }
 
-        private void readTimeNanos() {
+        protected void readTimeNanos() {
             trySupplyLongAt(2, itsGoogleRawGnssMeasurement::setTimeNanos);
         }
 
-        private void readLeapSecond() {
+        protected void readLeapSecond() {
             trySupplyIntegerAt(3, itsGoogleRawGnssMeasurement::setLeapSecond);
         }
 
-        private void readTimeUncertaintyNanos() {
+        protected void readTimeUncertaintyNanos() {
             trySupplyDoubleAt(4, itsGoogleRawGnssMeasurement::setTimeUncertaintyNanos);
         }
 
-        private void readFullBiasNanos() {
+        protected void readFullBiasNanos() {
             trySupplyLongAt(5, itsGoogleRawGnssMeasurement::setFullBiasNanos);
         }
 
-        private void readBiasNanos() {
+        protected void readBiasNanos() {
             trySupplyDoubleAt(6, itsGoogleRawGnssMeasurement::setBiasNanos);
         }
 
-        private void readBiasUncertaintyNanos() {
+        protected void readBiasUncertaintyNanos() {
             trySupplyDoubleAt(7, itsGoogleRawGnssMeasurement::setBiasUncertaintyNanos);
         }
 
-        private void readDriftNanosPerSecond() {
+        protected void readDriftNanosPerSecond() {
             trySupplyDoubleAt(8, itsGoogleRawGnssMeasurement::setDriftNanosPerSecond);
         }
 
-        private void readDriftUncertaintyNanosPerSecond() {
+        protected void readDriftUncertaintyNanosPerSecond() {
             trySupplyDoubleAt(9, itsGoogleRawGnssMeasurement::setDriftUncertaintyNanosPerSecond);
         }
 
-        private void readHardwareClockDiscontinuityCount() {
+        protected void readHardwareClockDiscontinuityCount() {
             trySupplyIntegerAt(10, itsGoogleRawGnssMeasurement::setHardwareClockDiscontinuityCount);
         }
 
-        private void readSvid() {
+        protected void readSvid() {
             trySupplyIntegerAt(11, itsGoogleRawGnssMeasurement::setSvid);
         }
 
-        private void readTimeOffsetNanos() {
+        protected void readTimeOffsetNanos() {
             trySupplyDoubleAt(12, itsGoogleRawGnssMeasurement::setTimeOffsetNanos);
         }
 
-        private void readState() {
+        protected void readState() {
             trySupplyIntegerAt(13, itsGoogleRawGnssMeasurement::setState);
         }
 
-        private void readReceivedSvTimeNanos() {
+        protected void readReceivedSvTimeNanos() {
             trySupplyLongAt(14, itsGoogleRawGnssMeasurement::setReceivedSvTimeNanos);
         }
 
-        private void readReceivedSvTimeUncertaintyNanos() {
+        protected void readReceivedSvTimeUncertaintyNanos() {
             trySupplyLongAt(15, itsGoogleRawGnssMeasurement::setReceivedSvTimeUncertaintyNanos);
         }
 
-        private void readCn0DbHz() {
+        protected void readCn0DbHz() {
             trySupplyDoubleAt(16, itsGoogleRawGnssMeasurement::setCn0DbHz);
         }
 
-        private void readPseudorangeRateMetersPerSecond() {
+        protected void readPseudorangeRateMetersPerSecond() {
             trySupplyDoubleAt(17, itsGoogleRawGnssMeasurement::setPseudorangeRateMetersPerSecond);
         }
 
-        private void readPseudorangeRateUncertaintyMetersPerSecond() {
+        protected void readPseudorangeRateUncertaintyMetersPerSecond() {
             trySupplyDoubleAt(18, itsGoogleRawGnssMeasurement::setPseudorangeRateUncertaintyMetersPerSecond);
         }
 
-        private void readAccumulatedDeltaRangeState() {
+        protected void readAccumulatedDeltaRangeState() {
             trySupplyIntegerAt(19, itsGoogleRawGnssMeasurement::setAccumulatedDeltaRangeState);
         }
 
-        private void readAccumulatedDeltaRangeMeters() {
+        protected void readAccumulatedDeltaRangeMeters() {
             trySupplyDoubleAt(20, itsGoogleRawGnssMeasurement::setAccumulatedDeltaRangeMeters);
         }
 
-        private void readAccumulatedDeltaRangeUncertaintyMeters() {
+        protected void readAccumulatedDeltaRangeUncertaintyMeters() {
             trySupplyDoubleAt(21, itsGoogleRawGnssMeasurement::setAccumulatedDeltaRangeUncertaintyMeters);
         }
 
-        private void readCarrierFrequencyHz() {
+        protected void readCarrierFrequencyHz() {
             trySupplyDoubleAt(22, itsGoogleRawGnssMeasurement::setCarrierFrequencyHz);
         }
 
-        private void readCarrierCycles() {
+        protected void readCarrierCycles() {
             trySupplyLongAt(23, itsGoogleRawGnssMeasurement::setCarrierCycles);
         }
 
-        private void readCarrierPhase() {
+        protected void readCarrierPhase() {
             trySupplyDoubleAt(24, itsGoogleRawGnssMeasurement::setCarrierPhase);
         }
 
-        private void readCarrierPhaseUncertainty() {
+        protected void readCarrierPhaseUncertainty() {
             trySupplyDoubleAt(25, itsGoogleRawGnssMeasurement::setCarrierPhaseUncertainty);
         }
 
-        private void readMultipathIndicator() {
+        protected void readMultipathIndicator() {
             trySupplyIntegerAt(26, itsGoogleRawGnssMeasurement::setMultipathIndicator);
         }
 
-        private void readSnrInDb() {
+        protected void readSnrInDb() {
             trySupplyDoubleAt(27, itsGoogleRawGnssMeasurement::setSnrInDb);
         }
 
-        private void readConstellationType() {
+        protected void readConstellationType() {
             trySupplyIntegerAt(28, itsGoogleRawGnssMeasurement::setConstellationType);
         }
 
-        private void readAgcDb() {
+        protected void readAgcDb() {
             trySupplyDoubleAt(29, itsGoogleRawGnssMeasurement::setAgcDb);
         }
 
-        private void readBasebandCn0DbHz() {
+        protected void readBasebandCn0DbHz() {
             trySupplyDoubleAt(30, itsGoogleRawGnssMeasurement::setBasebandCn0DbHz);
         }
 
-        private void readFullInterSignalBiasNanos() {
+        protected void readFullInterSignalBiasNanos() {
             trySupplyDoubleAt(31, itsGoogleRawGnssMeasurement::setFullInterSignalBiasNanos);
         }
 
-        private void readFullInterSignalBiasUncertaintyNanos() {
+        protected void readFullInterSignalBiasUncertaintyNanos() {
             trySupplyDoubleAt(32, itsGoogleRawGnssMeasurement::setFullInterSignalBiasUncertaintyNanos);
         }
 
-        private void readSatelliteInterSignalBiasNanos() {
+        protected void readSatelliteInterSignalBiasNanos() {
             trySupplyDoubleAt(33, itsGoogleRawGnssMeasurement::setSatelliteInterSignalBiasNanos);
         }
 
-        private void readSatelliteInterSignalBiasUncertaintyNanos() {
+        protected void readSatelliteInterSignalBiasUncertaintyNanos() {
             trySupplyDoubleAt(34, itsGoogleRawGnssMeasurement::setSatelliteInterSignalBiasUncertaintyNanos);
         }
 
-        private void readCodeType() {
+        protected void readCodeType() {
             trySupplyStringAt(35, itsGoogleRawGnssMeasurement::setCodeType);
         }
 
-        private void readChipsetElapsedRealtimeNanos() {
+        protected void readChipsetElapsedRealtimeNanos() {
             trySupplyLongAt(36, itsGoogleRawGnssMeasurement::setChipsetElapsedRealtimeNanos);
         }
 
