@@ -1,3 +1,10 @@
+# [1.0.0-alpha.6](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-10-22)
+
+
+### Features
+
+* add ConfigurableGoogleGnssLoggerRecordLineReader ([b039811](https://github.com/giulioscattolin/google-gnss-logger/commit/b039811bba6288fae51b723b4b20ef8709359ceb))
+
 # [1.0.0-alpha.5](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2021-10-21)
 
 
