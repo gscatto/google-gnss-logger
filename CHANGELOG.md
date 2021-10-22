@@ -1,3 +1,15 @@
+# [1.0.0-alpha.7](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2021-10-22)
+
+
+### Features
+
+* add FilteredEagerGoogleRawGnssMeasurementLineReader ([61acb37](https://github.com/giulioscattolin/google-gnss-logger/commit/61acb37269e932d5c2a6dc12d100c533e9d01889))
+
+
+### Performance Improvements
+
+* check for empty field before parsing as number ([8a5630b](https://github.com/giulioscattolin/google-gnss-logger/commit/8a5630b15365684eba59b9e396fc2280022c3e5c))
+
 # [1.0.0-alpha.6](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2021-10-22)
 
 
