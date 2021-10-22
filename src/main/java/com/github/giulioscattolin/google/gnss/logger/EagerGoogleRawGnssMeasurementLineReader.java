@@ -69,6 +69,11 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
         }
 
         private void trySupplyLongAt(int index, Consumer<Long> consumer) {
+            if (!isFieldEmpty(index))
+                supplyLongAt(index, consumer);
+        }
+
+        private void supplyLongAt(int index, Consumer<Long> consumer) {
             try {
                 consumer.accept(getLongAt(index));
             } catch (Exception ignored) {
@@ -76,6 +81,11 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
         }
 
         private void trySupplyIntegerAt(int index, Consumer<Integer> consumer) {
+            if (!isFieldEmpty(index))
+                supplyIntegerAt(index, consumer);
+        }
+
+        private void supplyIntegerAt(int index, Consumer<Integer> consumer) {
             try {
                 consumer.accept(getIntegerAt(index));
             } catch (Exception ignored) {
@@ -83,6 +93,11 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
         }
 
         private void trySupplyDoubleAt(int index, Consumer<Double> consumer) {
+            if (!isFieldEmpty(index))
+                supplyDoubleAt(index, consumer);
+        }
+
+        private void supplyDoubleAt(int index, Consumer<Double> consumer) {
             try {
                 consumer.accept(getDoubleAt(index));
             } catch (Exception ignored) {
@@ -90,12 +105,12 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
         }
 
         private void trySupplyStringAt(int index, Consumer<String> consumer) {
-            try {
-                String field = getFieldAt(index);
-                if (!field.isEmpty())
-                    consumer.accept(field);
-            } catch (Exception ignored) {
-            }
+            if (!isFieldEmpty(index))
+                supplyStringAt(index, consumer);
+        }
+
+        private void supplyStringAt(int index, Consumer<String> consumer) {
+            consumer.accept(getFieldAt(index));
         }
 
         private long getLongAt(int index) {
@@ -110,8 +125,15 @@ public class EagerGoogleRawGnssMeasurementLineReader extends GoogleRawGnssMeasur
             return parseDouble(getFieldAt(index));
         }
 
+        private boolean isFieldEmpty(int index) {
+            return getFieldAt(index).isEmpty();
+        }
+
         private String getFieldAt(int index) {
-            return itsFields[index];
+            if (index < itsFields.length)
+                return itsFields[index];
+            else
+                return "";
         }
     }
 }
