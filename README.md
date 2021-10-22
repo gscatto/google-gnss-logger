@@ -8,7 +8,7 @@ This library facilitates reading, writing and processing of sensor events and ra
 
 ![CI badge](https://github.com/giulioscattolin/google-gnss-logger/actions/workflows/gradle.yml/badge.svg)
 ![JitPack badge](https://jitpack.io/v/giulioscattolin/google-gnss-logger.svg)
-[![Javadoc badge](https://img.shields.io/badge/Javadoc-1.0.0--alpha.5-brightgreen)](https://javadoc.jitpack.io/com/github/giulioscattolin/google-gnss-logger/1.0.0-alpha.5/javadoc/)
+[![Javadoc badge](https://img.shields.io/badge/Javadoc-1.0.0--alpha.6-brightgreen)](https://javadoc.jitpack.io/com/github/giulioscattolin/google-gnss-logger/1.0.0-alpha.6/javadoc/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 
@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.giulioscattolin:google-gnss-logger:1.0.0-alpha.5'
+    implementation 'com.github.giulioscattolin:google-gnss-logger:1.0.0-alpha.6'
 }
 ```
 
