@@ -20,7 +20,7 @@ public class AnalyzeGnssLoggerFileUseCase implements GoogleGnssLoggerRecordColle
     private final Presenter itsPresenter;
     private final EagerGoogleRawGnssMeasurementLineReader itsReader = new EagerGoogleRawGnssMeasurementLineReader(this);
     private int itsGoogleRawGnssMeasurementCount = 0;
-    private Map<ConstellationTypeCarrierFrequency, List<GoogleRawGnssMeasurement>> itsGoogleRawGnssMeasurementByConstellationTypeAndCarrierFrequency = new HashMap<>();
+    private final Map<ConstellationTypeCarrierFrequency, List<GoogleRawGnssMeasurement>> itsGoogleRawGnssMeasurementByConstellationTypeAndCarrierFrequency = new HashMap<>();
 
     public AnalyzeGnssLoggerFileUseCase(File file, Presenter presenter) {
         itsFile = file;
