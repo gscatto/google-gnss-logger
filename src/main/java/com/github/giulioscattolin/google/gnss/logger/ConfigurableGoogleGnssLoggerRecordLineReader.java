@@ -2,7 +2,7 @@ package com.github.giulioscattolin.google.gnss.logger;
 
 /**
  * Provides a simplified interface to a {@link GoogleGnssLoggerRecordLineReader} implementation.
- *
+ * <p>
  * By default, this line reader does not emit any data. Users must configure it setting a line reader
  * implementation for each record type using {@link #with(GoogleGnssLoggerRecordLineReader)}.
  */
@@ -43,7 +43,10 @@ public class ConfigurableGoogleGnssLoggerRecordLineReader implements GoogleGnssL
         }
 
         private boolean isHeader() {
-            return itsLine.charAt(0) == '#';
+            if (itsLine.isEmpty())
+                return false;
+            else
+                return itsLine.charAt(0) == '#';
         }
 
         private void findRecord() {
