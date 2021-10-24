@@ -1,3 +1,10 @@
+# [1.0.0-alpha.8](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2021-10-24)
+
+
+### Bug Fixes
+
+* skip finding header in empty string ([2ee5a9b](https://github.com/giulioscattolin/google-gnss-logger/commit/2ee5a9b1703b08d885c1e1febe1df59cf6333c7e))
+
 # [1.0.0-alpha.7](https://github.com/giulioscattolin/google-gnss-logger/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2021-10-22)
 
 
